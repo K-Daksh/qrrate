@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&family=Nunito&display=swap" rel="stylesheet" />
   <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />-->
@@ -14,7 +13,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>qrate</title>
 </head>
-
 <body>
 
   <div class="mockup-browser border border-base-300">
@@ -129,18 +127,21 @@
 
   <div class="divider"></div>
 
-  <div>
-    <h2 class="text-lg font-semibold">Clear the Files</h2>
-    <form id="forms" action="/clear" method="get">
-      <button class="btn btn-outline btn-error" role="button">Clear</button>
-    </form>
+  <div class="flex justify-center items-center">
+    <div>
+      <h2 class="text-center font-semibold text-xl p-2">Clear the Files</h2>
+      <form id="forms" action="/clear" method="get">
+        <button class="btn btn-outline btn-error" role="button">Clear all files⚠️</button>
+      </form>
+    </div>
   </div>
-  </div>
-  <footer class="p-4">
+  
+  <footer class="p-4 text-center">
     Made By :
-    <a href="https://www.linkedin.com/in/daksh-kitukale-824843235/" class="link link-error">Daksh Kitukale</a>
+    <a href="https://www.linkedin.com/in/daksh-kitukale-824843235/" class="mt-2 link link-warning text-lg">Daksh Kitukale</a>
   </footer>
 
+  <!-- VANTA JS SCRIPT  -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       VANTA.BIRDS({
@@ -156,7 +157,5 @@
       });
     });
   </script>
-
 </body>
-
 </html>
