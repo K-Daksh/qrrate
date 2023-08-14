@@ -1,103 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&family=Nunito&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./index.css" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>qrate</title>
-  </head>
-  <header>
-    <h1>Qrate 1.0</h1>
-    <p>
-      Qrate 1.0 effortlessly transforms your files into dynamic QR code videos.
-      written in JavaScript with Node.js as its backend technology, these videos
-      can be conveniently uploaded to YouTube, granting you access to an
-      abundant cloud storage solution for all your files.
-    </p>
-    <p>
-      *THIS IS IN DEVELOPMENT STAGE, SO PLEASE DO NOT UPLOAD FILES OVER COMBINED
-      SIZE OF 5MBs*
-    </p>
-  </header>
-  <body>
-    <!-- Upload section-->
 
-    <h2 id="subtitle">Upload File to process</h2>
-    <span>
-      <form
-        id="forms"
-        action="/upload"
-        method="post"
-        enctype="multipart/form-data"
-      >
-        Upload and select only one file at a time:
-        <input type="file" multiple="multiple" name="uploadFile" id="" />
-        <br /><br />
-        <button class="button-55" role="button">Upload</button>
-      </form></span
-    >
-    <div>
-      <form id="forms" action="/tozip" method="get">
-        <button class="button-55" role="button">convert to Zip</button>
-      </form>
-      <form id="forms" action="/toqr" method="get">
-        <button class="button-55" role="button">convert to qr</button>
-      </form>
-      <form id="forms" action="/tovideo" method="get">
-        <button class="button-55" role="button">convert to video</button>
-      </form>
-      <div>
-        <form id="forms" action="/downloadvid" method="get">
-          <button class="button-55" role="button">Download Video</button>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&family=Nunito&display=swap" rel="stylesheet" />
+  <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />-->
+  <link rel="stylesheet" href="./index.css" /> 
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.birds.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qrate</title>
+</head>
+
+<body>
+
+  <div class="mockup-browser border border-base-300">
+    <div class="mockup-browser-toolbar">
+      <div class="input border border-base-300 text-warning">https://github.com/K-Daksh/qrrate</div>
+    </div>
+  </div>
+
+  <div id="hero-background" class="flex items-center bg-gray-1000 justify-center min-h-screen p-8 text-white">
+    <div class="max-w-3xl">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4 text-purple-500">Welcome to Qrate 1.0</h1>
+      <p class="text-lg md:text-xl">
+        Qrate 1.0 effortlessly transforms your files into dynamic QR code videos.
+        Written in JavaScript with Node.js as its backend technology, these videos
+        can be conveniently uploaded to YouTube, granting you access to an abundant
+        cloud storage solution for all your files.
+      </p>
+      <p class="text-lg md:text-xl mt-4">
+        <strong>*THIS IS IN DEVELOPMENT STAGE, SO PLEASE DO NOT UPLOAD FILES OVER COMBINED SIZE OF 5MBs*</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="p-4">
+    <div class="flex justify-center items-center">
+      <div class="indicator">
+        <span class="indicator-item badge badge-warning">STEP 1</span>
+        <div class="bg-gray-800 p-6 rounded-md">
+          <form id="forms" action="/upload" method="post" enctype="multipart/form-data" class="space-y-4">
+            <h2 class="text-lg text-center font-semibold block">
+              Upload File to Process
+            </h2>
+            <label class="block text-gray-100">Upload and select only one file at a time</label>
+            <input type="file" name="uploadFile" id="" class="border rounded p-2" />
+            <button class="btn btn-primary" role="button">Upload</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center ">
+    <div class="text-sm breadcrumbs">
+      <ul class="flex items-center space-x-2">
+        <li>Zip</li>
+        <li>QR</li>
+        <li>Video</li>
+        <li>Download</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center space-y-4 md:flex-row md:justify-center md:space-x-4 my-4">
+    <div class="w-1 h-1 bg-gray-400 rounded-full md:hidden"></div>
+    <form id="forms" action="/tozip" method="get">
+      <button class="btn btn-outline btn-info" role="button">
+        Convert to Zip
+      </button>
+    </form>
+    <div class="w-1 h-1 bg-gray-400 rounded-full hidden md:block"></div>
+    <form id="forms" action="/toqr" method="get">
+      <button class="btn btn-primary" role="button">Convert to QR</button>
+    </form>
+    <div class="w-1 h-1 bg-gray-400 rounded-full hidden md:block"></div>
+    <form id="forms" action="/tovideo" method="get">
+      <button class="btn btn-primary" role="button">
+        Convert to Video
+      </button>
+    </form>
+    <div class="w-1 h-1 bg-gray-400 rounded-full hidden md:block"></div>
+    <form id="forms" action="/downloadvid" method="get">
+      <button class="btn btn-success" role="button">Download Video</button>
+    </form>
+    <div class="w-1 h-1 bg-gray-400 rounded-full hidden md:block"></div>
+    <form id="forms" action="/clear" method="get">
+      <button class="btn btn-outline btn-error" role="button">Clear</button>
+    </form>
+  </div>
+
+  <div class="divider">OR</div>
+
+  <div class="flex justify-center items-center">
+    <div class="indicator">
+      <span class="indicator-item badge badge-warning">STEP 2</span>
+      <div class="bg-gray-800 p-6 rounded-md">
+        <form id="forms" action="/uploadvideo" method="post" enctype="multipart/form-data" class="space-y-4">
+          <h2 class="text-lg text-center font-semibold block">
+            Upload Video to Retrieve
+          </h2>
+          <label class="block text-gray-100">Upload the video file to retrieve:</label>
+          <input type="file" name="uploadFile" id="" class="border rounded p-2" />
+          <button class="btn btn-primary" role="button">Upload</button>
         </form>
       </div>
-      <form id="forms" action="/clear" method="get">
-        <button class="button-55" role="button">clear</button>
-      </form>
     </div>
-    <hr />
-    <div>
-      <h2 id="subtitle">Convert Video to File</h2>
-      <span>
-        <form
-          id="forms"
-          action="/uploadvideo"
-          method="post"
-          enctype="multipart/form-data"
-        >
-          Upload the video file to retrive:
-          <input type="file" multiple="multiple" name="uploadFile" id="" />
-          <br /><br />
-          <button class="button-55" role="button">Upload</button>
-        </form></span
-      >
-      <form id="forms" action="/tofile" method="get">
-        <button class="button-55" role="button">convert</button>
-      </form>
-      <form id="forms" action="/dfile" method="get">
-        <button class="button-55" role="button">Download File</button>
-      </form>
-      <form id="forms" action="/clear" method="get">
-        <button class="button-55" role="button">clear</button>
-      </form>
-    </div>
-    <hr />
-    <div>
-      <h2 id="subtitle">Clear the files</h2>
-      <form id="forms" action="/clear" method="get">
-        <button class="button-55" role="button">clear</button>
-      </form>
-    </div>
-  </body>
-  <footer>
+  </div>
+
+  <!-- converting here -->
+
+  <div class="flex flex-col items-center space-y-4 md:flex-row md:justify-center md:space-x-4 my-4">
+    <div class="w-1 h-1 bg-gray-400 rounded-full md:hidden"></div>
+    <form id="forms" action="/tofile" method="get">
+      <button class="btn btn-primary" role="button">Convert</button>
+    </form>
+    <form id="forms" action="/dfile" method="get">
+      <button class="btn btn-primary" role="button">Download File</button>
+    </form>
+    <form id="forms" action="/clear" method="get">
+      <button class="btn btn-outline btn-error" role="button">Clear</button>
+    </form>
+  </div>
+
+  <div class="divider"></div>
+
+  <div>
+    <h2 class="text-lg font-semibold">Clear the Files</h2>
+    <form id="forms" action="/clear" method="get">
+      <button class="btn btn-outline btn-error" role="button">Clear</button>
+    </form>
+  </div>
+  </div>
+  <footer class="p-4">
     Made By :
-    <a href="https://www.linkedin.com/in/daksh-kitukale-824843235/"
-      >Daksh Kitukale</a
-    >
+    <a href="https://www.linkedin.com/in/daksh-kitukale-824843235/" class="link link-error">Daksh Kitukale</a>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      VANTA.BIRDS({
+        el: "#hero-background",
+        backgroundColor: 0x80e15,
+        color1: 0xff0000,
+        color2: 0x00ff00,
+        wingSpan: 20,
+        speedLimit: 3.0,
+        separation: 40,
+        quantity: 4,
+        backgroundAlpha: 0.3
+      });
+    });
+  </script>
+
+</body>
+
 </html>
