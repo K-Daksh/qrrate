@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>qrate</title>
+  </head>
+  <header>
+    <h1>Qrate 1.0</h1>
+    <p>
+      Qrate 1.0 effortlessly transforms your files into dynamic QR code videos.
+      written in JavaScript with Node.js as its backend technology, these videos
+      can be conveniently uploaded to YouTube, granting you access to an
+      abundant cloud storage solution for all your files.
+    </p>
+    <p>
+      *THIS IS IN DEVELOPMENT STAGE, SO PLEASE DO NOT UPLOAD FILES OVER COMBINED
+      SIZE OF 5MBs*
+    </p>
+  </header>
+  <body>
+    <!-- Upload section-->
+
+    <h2 id="subtitle">Upload File to process</h2>
+    <span>
+      <form
+        id="forms"
+        action="/upload"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        Upload and select only one file at a time:
+        <input type="file" multiple="multiple" name="uploadFile" id="" />
+        <br /><br />
+        <button class="button-55" role="button">Upload</button>
+      </form></span
+    >
+    <div>
+      <form id="forms" action="/tozip" method="get">
+        <button class="button-55" role="button">convert to Zip</button>
+      </form>
+      <form id="forms" action="/toqr" method="get">
+        <button class="button-55" role="button">convert to qr</button>
+      </form>
+      <form id="forms" action="/tovideo" method="get">
+        <button class="button-55" role="button">convert to video</button>
+      </form>
+      <div>
+        <form id="forms" action="/downloadvid" method="get">
+          <button class="button-55" role="button">Download Video</button>
+        </form>
+      </div>
+      <form id="forms" action="/clear" method="get">
+        <button class="button-55" role="button">clear</button>
+      </form>
+    </div>
+    <hr />
+    <div>
+      <h2 id="subtitle">Convert Video to File</h2>
+      <span>
+        <form
+          id="forms"
+          action="/uploadvideo"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          Upload the video file to retrive:
+          <input type="file" multiple="multiple" name="uploadFile" id="" />
+          <br /><br />
+          <button class="button-55" role="button">Upload</button>
+        </form></span
+      >
+      <form id="forms" action="/tofile" method="get">
+        <button class="button-55" role="button">convert</button>
+      </form>
+      <form id="forms" action="/dfile" method="get">
+        <button class="button-55" role="button">Download File</button>
+      </form>
+      <form id="forms" action="/clear" method="get">
+        <button class="button-55" role="button">clear</button>
+      </form>
+    </div>
+    <hr />
+    <div>
+      <h2 id="subtitle">Clear the files</h2>
+      <form id="forms" action="/clear" method="get">
+        <button class="button-55" role="button">clear</button>
+      </form>
+    </div>
+  </body>
+  <footer>
+    Made By :
+    <a href="https://www.linkedin.com/in/daksh-kitukale-824843235/"
+      >Daksh Kitukale</a
+    >
+  </footer>
+</html>
