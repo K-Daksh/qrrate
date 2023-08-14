@@ -13,7 +13,9 @@
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
     "fluent-ffmpeg": "^2.1.2",
-    "jsqr": "^1.4.0"
+    "jsqr": "^1.4.0",
+     "jimp": "^0.22.10",
+    "qrcode": "^1.5.3"
   },
   "description": "This application can convert any file to video that can be uploaded to youtube for unlimited storage and then can be converted back to their orignal form.",
   "devDependencies": {
