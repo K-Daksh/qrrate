@@ -1,4 +1,4 @@
-# [Qrrate](https://qrrate.onrender.com)
+# [Qrrate](https://qrrate.onrender.com) 🛸
 
 ***
 
