@@ -45,4 +45,4 @@ npm run start
 
 ## License
 
-__Mozilla Public License 2.0__
+__Apache-2.0 license__
